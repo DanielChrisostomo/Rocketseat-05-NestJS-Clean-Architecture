@@ -12,9 +12,9 @@ export interface QuestionProps {
   title: string;
   content: string;
   slug: Slug;
-  createdAt: Date;
   attachments: QuestionAttachmentList;
-  updatedAt?: Date;
+  createdAt: Date;
+  updatedAt?: Date | null;
 }
 
 export class Question extends AggregateRoot<QuestionProps> {
