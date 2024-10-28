@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3333
-@authToken = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhMGRhNDE0MC1jZjc3LTQ2ZDktOTk1NS0wODZiOTg0Nzc2MDciLCJpYXQiOjE3Mjk3OTg4NTd9.fWXwLq7qe997VKH5LWJUPxoa2sy7YwU_TXiTKJy-xtD-u9lWr1AxRKjkWThZwD_DCT6b_Vu4abvACIK9li721xw61CeZOY_oP_Nw9ib4WMjTo272xg7Err4-uC-y-JV0XGBNh78M4o8qxvYu1VLgTZuGTkyeeY9MAazBktSr8IfT7gT-sdb1NRPPYSHR2VeVE31cqHvgme_7cwEXodN-B-Lpq6sii7tBfRBl-FJonA33Xn4nEEbirFpIDOaXeJcKC9l0NpM0zYZV2bzbz1eRDbj8695qv7HcnR27_Ggqy7K2KlW2W57R1JM_FeOADq3eiGSuxQ7krqpk9APwOy7IFQ
+@authToken = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhMGRhNDE0MC1jZjc3LTQ2ZDktOTk1NS0wODZiOTg0Nzc2MDciLCJpYXQiOjE3MzAxMzY5MTh9.phHd6vLEYIfpPhXdtW216EgDH3jpfx7fu7ksm1-aSSV3_oNE2cwJ76kc2Qz13Vf4i4gAR023smnc0os7SDiNytlUvm_X2Sz-SVi8u09OYR1FpmGqHHXu7uvh052aPZxzxKw05PYm-7y7IA4N8v6lLVXJZqZY7qYz_w3VksYrJJP2fpftRTutqrGeTt9COnz7PXwDvjTmmdAOURI8Y4WTxlc0ny2Fwjz0OI-DSYoEB6PBMNX-hGjQzHGcxNPAEVxU0ySVMpdjyxA7WRCYSxukUSC4byjsYkYYh7FvKUlUYKLqgD4_uf-FTJnypqENMGmJndlzD3p8Pqr4p8j9Zic4DQ
 
 # @name create_account
 POST {{baseUrl}}/accounts
@@ -16,6 +16,8 @@ Content-Type: application/json
 # @name authenticate
 POST {{baseUrl}}/sessions
 Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
 {
   "email": "diego@rocketseat.com.br",
   "password": "123456"
@@ -29,7 +31,7 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "title": "Nova pergunta 5",
+  "title": "Nova pergunta 6",
   "content": "Teste"
 }
 

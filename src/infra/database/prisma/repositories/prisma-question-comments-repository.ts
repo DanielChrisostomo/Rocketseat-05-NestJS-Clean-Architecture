@@ -17,5 +17,4 @@ export class PrismaQuestionCommentsRepository implements QuestionCommentsReposit
   delete(questionComment: QuestionComment): Promise<void> {
     throw new Error("Method not implemented.");
   }
-
 }

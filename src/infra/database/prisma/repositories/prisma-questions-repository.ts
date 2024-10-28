@@ -28,15 +28,6 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
     return PrismaQuestionMapper.toDomain(question)
   }
 
-  async delete(question: Question): Promise<void> {
-    const data = PrismaQuestionMapper.toPrisma(question)
-    await this.prisma.question.delete({
-      where: {
-        id: data.id,
-      },
-    })
-  }
-
   async findById(id: string): Promise<Question | null> {
     const question = await this.prisma.question.findUnique({
       where: {
@@ -68,5 +59,14 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
       skip: (page - 1) * 20,
     })
     return questions.map(PrismaQuestionMapper.toDomain)
+  }
+
+  async delete(question: Question): Promise<void> {
+    const data = PrismaQuestionMapper.toPrisma(question)
+    await this.prisma.question.delete({
+      where: {
+        id: data.id,
+      },
+    })
   }
 }
