@@ -29,6 +29,7 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
   }
 
   async findById(id: string): Promise<Question | null> {
+
     const question = await this.prisma.question.findUnique({
       where: {
         id,
@@ -37,6 +38,7 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
     if (!question) {
       return null;
     }
+    
     return PrismaQuestionMapper.toDomain(question);
   }
 
