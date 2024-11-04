@@ -16,11 +16,15 @@ import { EditQuestionUseCase } from '@/domain/forum/application/use-cases/edit-q
 import { DeleteQuestionUseCase } from "@/domain/forum/application/use-cases/delete-question";
 import { DeleteQuestionController } from "./controllers/delete-question.controller";
 import { AnswerQuestionController } from "./controllers/answer-question.controller";
-import { AnswerQuestionUseCase } from "@/domain/forum/application/use-cases/anwser-question";
 import { EditAnswerController } from './controllers/edit-answer.controller'
 import { EditAnswerUseCase } from '@/domain/forum/application/use-cases/edit-answer'
 import { DeleteAnswerController } from './controllers/delete-answer.controller'
 import { DeleteAnswerUseCase } from '@/domain/forum/application/use-cases/delete-answer'
+import { FetchQuestionAnswersController } from './controllers/fetch-question-answers.controller'
+import { FetchQuestionAnswersUseCase } from '@/domain/forum/application/use-cases/fetch-question-answers'
+import { ChooseQuestionBestAnswerController } from './controllers/choose-question-best-answer.controller'
+import { AnswerQuestionUseCase } from "@/domain/forum/application/use-cases/anwser-question";
+import { ChooseQuestionBestAnswerUseCase } from "@/domain/forum/application/use-cases/choose-question-best-anwser";
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -34,7 +38,9 @@ import { DeleteAnswerUseCase } from '@/domain/forum/application/use-cases/delete
     DeleteQuestionController,
     AnswerQuestionController,
     EditAnswerController,
-    DeleteAnswerController
+    DeleteAnswerController,
+    FetchQuestionAnswersController,
+    ChooseQuestionBestAnswerController
   ],
   providers: [
     CreateQuestionUseCase,
@@ -46,7 +52,9 @@ import { DeleteAnswerUseCase } from '@/domain/forum/application/use-cases/delete
     DeleteQuestionUseCase,
     AnswerQuestionUseCase,
     EditAnswerUseCase,
-    DeleteAnswerUseCase
+    DeleteAnswerUseCase,
+    FetchQuestionAnswersUseCase,
+    ChooseQuestionBestAnswerUseCase
   ],
 })
 export class HttpModule {}
