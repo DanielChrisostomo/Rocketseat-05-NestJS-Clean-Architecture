@@ -15,6 +15,7 @@ import {
 
   const editAnswerBodySchema = z.object({
     content: z.string(),
+    attachments: z.array(z.string().uuid()).default([]),
   })
 
   const bodyValidationPipe = new ZodValidationPipe(editAnswerBodySchema)
@@ -34,13 +35,15 @@ import {
       @Param('id') answerId: string,
     ) {
 
-      const { content } = body
+      const { content, attachments } = body
+
       const userId = user.sub
+
       const result = await this.editAnswer.execute({
         content,
         answerId,
         authorId: userId,
-        attachmentsIds: [],
+        attachmentsIds: attachments,
       })
 
       if (result.isLeft()) {
