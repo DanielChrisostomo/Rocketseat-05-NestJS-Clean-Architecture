@@ -22,6 +22,8 @@ describe('Edit Question', () => {
     inMemoryStudentsRepository = new InMemoryStudentsRepository()
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository(
       inMemoryQuestionAttachmentsRepository,
+      inMemoryAttachmentsRepository,
+      inMemoryStudentsRepository,
     )
 
     sut = new EditQuestionUseCase(
@@ -127,9 +129,7 @@ describe('Edit Question', () => {
     })
 
     expect(result.isRight()).toBe(true)
-    
     expect(inMemoryQuestionAttachmentsRepository.items).toHaveLength(2)
-
     expect(inMemoryQuestionAttachmentsRepository.items).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
