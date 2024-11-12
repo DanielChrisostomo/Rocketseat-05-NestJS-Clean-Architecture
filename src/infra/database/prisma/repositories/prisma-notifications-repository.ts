@@ -6,7 +6,9 @@ import { Notification } from '@/domain/notification/enterprise/entities/notifica
 
 @Injectable()
 export class PrismaNotificationsRepository implements NotificationsRepository {
+
   constructor(private prisma: PrismaService) {}
+
   async findById(id: string): Promise<Notification | null> {
     const notification = await this.prisma.notification.findUnique({
       where: {
@@ -18,14 +20,18 @@ export class PrismaNotificationsRepository implements NotificationsRepository {
     }
     return PrismaNotificationMapper.toDomain(notification)
   }
+
   async create(notification: Notification): Promise<void> {
     const data = PrismaNotificationMapper.toPrisma(notification)
     await this.prisma.notification.create({
       data,
     })
   }
+
   async save(notification: Notification): Promise<void> {
+    
     const data = PrismaNotificationMapper.toPrisma(notification)
+
     await this.prisma.notification.update({
       where: {
         id: notification.id.toString(),

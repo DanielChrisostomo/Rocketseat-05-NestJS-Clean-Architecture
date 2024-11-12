@@ -38,6 +38,8 @@ import { FetchQuestionCommentsUseCase } from '@/domain/forum/application/use-cas
 import { FetchAnswerCommentsController } from './controllers/fetch-answer-comments.controller'
 import { FetchAnswerCommentsUseCase } from '@/domain/forum/application/use-cases/fetch-answer-comments'
 import { UploadAttachmentController } from './controllers/upload-attachment.controller'
+import { ReadNotificationController } from './controllers/read-notification.controller'
+import { ReadNotificationUseCase } from '@/domain/notification/application/use-cases/read-notification'
 // import { StorageModule } from '../storage/storage.module'
 // import { UploadAndCreateAttachmentUseCase } from '@/domain/forum/application/use-cases/upload-and-create-attachment'
 
@@ -62,6 +64,7 @@ import { UploadAttachmentController } from './controllers/upload-attachment.cont
     DeleteAnswerCommentController,
     FetchQuestionCommentsController,
     FetchAnswerCommentsController,
+    ReadNotificationController,
     // UploadAttachmentController,
   ],
   providers: [
@@ -83,6 +86,7 @@ import { UploadAttachmentController } from './controllers/upload-attachment.cont
     DeleteAnswerCommentUseCase,
     FetchQuestionCommentsUseCase,
     FetchAnswerCommentsUseCase,
+    ReadNotificationUseCase,
     // UploadAndCreateAttachmentUseCase
   ],
 })
